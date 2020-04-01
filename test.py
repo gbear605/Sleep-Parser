@@ -6,7 +6,7 @@ from data_processer import process_data
 
 
 class ProcessDataTest(unittest.TestCase):
-    def basic_process_data(self) -> None:
+    def test_basic_process_data(self) -> None:
         data = [
             "June 1-2",
             "23:30-08:00; 8:30 hours",

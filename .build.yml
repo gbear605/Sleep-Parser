@@ -10,4 +10,4 @@ tasks:
 - test: |
    cd sleep_parser
    mypy main.py
-   python -m unittest test.py
+   python -m unittest test.py -v
