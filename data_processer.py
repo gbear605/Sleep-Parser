@@ -42,12 +42,12 @@ def process_data(content: List[str]):
 
         # handle timezone
         timezone = default_timezone
-        if date[-1] is ')':
+        if date[-1] == ')':
             new_timezone = date[-4:-1]
             if new_timezone == 'TZC':
-                if default_timezone is 'EST':
+                if default_timezone == 'EST':
                     default_timezone = 'EDT'
-                elif default_timezone is 'EDT':
+                elif default_timezone == 'EDT':
                     default_timezone = 'EST'
                 else:
                     raise Exception("Invalid default timezone " + default_timezone)
