@@ -1,0 +1,13 @@
+image: archlinux
+packages:
+  - python
+  - python-numpy
+  - python-matplotlib
+  - mypy
+sources:
+  - https://git.sr.ht/~gbear605/sleep_parser
+tasks:
+- test: |
+   cd sleep_parser
+   mypy main.py
+   python -m unittest test.py

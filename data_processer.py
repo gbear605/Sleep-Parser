@@ -1,5 +1,5 @@
 import datetime
-from typing import List
+from typing import List, Tuple
 
 from SleepData import SleepData
 
@@ -8,7 +8,7 @@ def hours_to_float(hours: int, minutes: int) -> float:
     return float(str(hours) + ('%.2f' % (minutes / 60))[1:])
 
 
-def get_month(long_month: int):
+def get_month(long_month: str):
     return {
         'January': 1,
         'February': 2,
@@ -75,13 +75,11 @@ def process_data(content: List[str]):
         time_range = time_range.strip()
 
         (hours, minutes) = total_time_string.strip(' hours').split(':')
-        (hours, minutes) = (int(hours), int(minutes))
-        total_hours = hours_to_float(hours, minutes)
+        total_hours = hours_to_float(int(hours), int(minutes))
 
-        times = []
+        times: List[Tuple[str, str]] = []
         if ',' in time_range:
-            times = time_range.split(', ')
-            times = [extract_time(time) for time in times]
+            times = [extract_time(time) for time in time_range.split(', ')]
         else:
             times.append(extract_time(time_range))
 

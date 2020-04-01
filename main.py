@@ -1,19 +1,19 @@
 from SleepData import SleepData
 from data_processer import process_data
-from typing import List, Tuple
+from typing import List, Tuple, Any
 
-import numpy as np
-from numpy.polynomial.polynomial import Polynomial
+import numpy as np # type: ignore
+from numpy.polynomial.polynomial import Polynomial # type: ignore
 
-import matplotlib
-import matplotlib.pyplot as plt
+import matplotlib # type: ignore
+import matplotlib.pyplot as plt # type: ignore
 
 with open('data.txt') as f:
     content = f.readlines()
     content = [x.strip() for x in content]
     processed_data: List[SleepData] = process_data(content)
 
-    hour_rating_list: List[Tuple[float, int]] = []
+    hour_rating_list: List[Tuple[float, Any, int]] = []
     last_three_days = []
     for datum in processed_data:
         last_three_days.append(datum.total_hours)
