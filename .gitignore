@@ -1,0 +1,8 @@
+__pycache__
+.idea
+
+*.csv
+*.png
+*.txt
+
+.DS_Store
